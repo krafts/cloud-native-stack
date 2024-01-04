@@ -709,14 +709,25 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: nvidia-smi
+  namespace: nvidia-gpu-operator
+  annotations:
+    cdi.k8s.io/gpu: "nvidia.com/pgpu=0"
 spec:
+  runtimeClassName: kata-qemu-nvidia-gpu
   restartPolicy: OnFailure
   containers:
-    - name: nvidia-smi
-      image: "nvidia/cuda:12.1.0-base-ubuntu22.04"
-      args: ["nvidia-smi"]
+  - name: nvidia-smi
+    image: "nvidia/cuda:12.1.0-base-ubuntu22.04"
+    args: ["nvidia-smi"]
+    resources:
+      limits:
+        "nvidia.com/AD102GL_L40": 1
 EOF
 ```
+
+
+
+
 
 ```
 kubectl apply -f nvidia-smi.yaml

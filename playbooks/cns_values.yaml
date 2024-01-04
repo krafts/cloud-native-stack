@@ -1,26 +1,30 @@
-cns_version: 9.4
+cns_version: 11.0
 
 ## Components Versions
 # Container Runtime options are containerd, cri-o, cri-dockerd
 container_runtime: "containerd"
 containerd_version: "1.7.7"
-crio_version: "1.26.4"
+containerd_max_concurrent_downloads: "5"
+crio_version: "1.28.1"
 cri_dockerd_version: "0.3.6"
-k8s_version: "1.26.10"
+k8s_version: "1.28.2"
 calico_version: "3.26.3"
 flannel_version: "0.22.3"
 helm_version: "3.13.1"
-gpu_operator_version: "23.9.0"
-network_operator_version: "23.7.0"
+gpu_operator_version: "23.9.1"
+network_operator_version: "23.10.0"
 local_path_provisioner: "0.0.24"
 
 # GPU Operator Values
 enable_gpu_operator: yes
-gpu_driver_version: "535.104.12"
+confidential_computing: yes
+gpu_driver_version: "535.129.03"
+use_open_kernel_module: no
 enable_mig: no
 mig_profile: all-disabled
 mig_strategy: single
 enable_gds: no
+#Secure Boot for only Ubuntu
 enable_secure_boot: no
 enable_vgpu: no
 vgpu_license_server: ""

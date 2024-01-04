@@ -1,3 +1,4 @@
 [master]
-#localhost ansible_ssh_user=nvidia ansible_ssh_pass=nvidiapass ansible_sudo_pass=nvidiapass ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+10.46.4.123 ansible_ssh_user=<USERNAME> ansible_ssh_pass=<PASSWORD> ansible_sudo_pass= ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
 [nodes]
